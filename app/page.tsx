@@ -16,8 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-
-const bookingUrl = 'https://davidfrotiee.com/tarifs-contact/';
+import { bookingUrl, SiteFooter, SiteHeader } from '@/components/site-chrome';
 
 const needs = [
   {
@@ -25,24 +24,28 @@ const needs = [
     title: 'Je veux arrêter de fumer',
     description:
       'Ne plus organiser mes journées autour d’une cigarette — sans vivre chaque envie comme un combat.',
+    href: '/accompagnements/arret-tabac-besancon',
   },
   {
     number: '02',
     title: 'Je veux apaiser mon rapport à l’alimentation',
     description:
       'Sortir du cycle envie, contrôle et culpabilité pour retrouver une relation plus simple avec mon corps.',
+    href: '/accompagnements/alimentation-poids-besancon',
   },
   {
     number: '03',
     title: 'Je veux retrouver mon calme',
     description:
       'Ne plus laisser la charge mentale ou le stress prendre toute la place, même quand la pression monte.',
+    href: '/accompagnements/stress-emotions-besancon',
   },
   {
     number: '04',
     title: 'Je veux avancer avec plus d’assurance',
     description:
       'Pouvoir parler, décider et agir sans être retenu par le trac, le doute ou d’anciens réflexes.',
+    href: '/accompagnements/confiance-examens-besancon',
   },
 ];
 
@@ -51,21 +54,25 @@ const supports = [
     label: 'Tabac & dépendances',
     title: 'Retrouver une vie où ne pas fumer redevient naturel.',
     detail: 'Séance intensive ou accompagnement renforcé selon votre besoin.',
+    href: '/accompagnements/arret-tabac-besancon',
   },
   {
     label: 'Alimentation & poids émotionnel',
     title: 'Pouvoir écouter votre corps sans négocier avec vous-même toute la journée.',
     detail: 'Compulsions, sucre, satiété et comportements de compensation.',
+    href: '/accompagnements/alimentation-poids-besancon',
   },
   {
     label: 'Stress & émotions',
     title: 'Retrouver du calme lorsque tout semble demander trop d’énergie.',
     detail: 'Charge mentale, surmenage et réactions émotionnelles envahissantes.',
+    href: '/accompagnements/stress-emotions-besancon',
   },
   {
     label: 'Confiance & situations à enjeu',
     title: 'Faire ce que vous savez faire, sans que la pression décide à votre place.',
     detail: 'Prise de parole, examens, concours et affirmation de soi.',
+    href: '/accompagnements/confiance-examens-besancon',
   },
 ];
 
@@ -103,28 +110,11 @@ export default function Home() {
 
   return (
     <main>
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="David Frotiée — Accueil">
-          <span>David</span>
-          <span>Frotiée</span>
-        </a>
-
-        <nav className="desktop-nav" aria-label="Navigation principale">
-          <a href="#besoins">Vos besoins</a>
-          <a href="#approche">Mon approche</a>
-          <a href="#david">David Frotiée</a>
-          <a href="#rendez-vous">Tarifs &amp; RDV</a>
-        </nav>
-
-        <Button className="header-cta" onClick={goToBooking}>
-          Prendre rendez-vous
-          <ArrowRight aria-hidden="true" />
-        </Button>
-      </header>
+      <SiteHeader />
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Hypnothérapie · Besançon &amp; à distance</p>
+          <p className="eyebrow">Hypnothérapeute à Besançon · au cabinet &amp; à distance</p>
           <h1>
             Vous savez ce que vous voulez changer.
             <em> Pourtant, quelque chose résiste.</em>
@@ -190,7 +180,7 @@ export default function Home() {
 
         <div className="needs-list">
           {needs.map((need) => (
-            <a className="need-row" href="#accompagnements" key={need.number}>
+            <a className="need-row" href={need.href} key={need.number}>
               <span className="need-number">{need.number}</span>
               <h3>{need.title}</h3>
               <p>{need.description}</p>
@@ -232,7 +222,7 @@ export default function Home() {
         <div className="section-heading two-column-heading">
           <div>
             <p className="eyebrow">Les accompagnements</p>
-            <h2>Partir de ce que vous vivez.</h2>
+            <h2>Hypnose à Besançon : quatre accompagnements ciblés.</h2>
           </div>
           <p className="heading-aside">
             Quatre portes d’entrée concrètes, une même intention : rendre le
@@ -248,9 +238,9 @@ export default function Home() {
               <p className="support-label">{support.label}</p>
               <h3>{support.title}</h3>
               <p className="support-detail">{support.detail}</p>
-              <button type="button" onClick={goToBooking}>
-                En savoir plus <ArrowRight aria-hidden="true" />
-              </button>
+              <a className="support-link" href={support.href}>
+                Découvrir cet accompagnement <ArrowRight aria-hidden="true" />
+              </a>
             </article>
           ))}
         </div>
@@ -259,7 +249,7 @@ export default function Home() {
       <section className="method section">
         <div className="method-intro">
           <p className="eyebrow">Ce qui se passe réellement</p>
-          <h2>Un accompagnement clair, sans jargon inutile.</h2>
+          <h2>Comment se déroule un accompagnement en hypnose&nbsp;?</h2>
           <p>
             La technique reste présente, mais elle vient soutenir votre parcours
             — elle ne vous demande pas d’en devenir l’expert.
@@ -333,7 +323,7 @@ export default function Home() {
 
         <div className="about-copy">
           <p className="eyebrow">David Frotiée</p>
-          <h2>Une pratique sérieuse, sans mystification.</h2>
+          <h2>David Frotiée, hypnothérapeute à Besançon.</h2>
           <p className="about-lead">
             Je conçois l’accompagnement comme un espace de travail calme,
             précis et profondément humain.
@@ -360,7 +350,7 @@ export default function Home() {
       <section className="faq section">
         <div className="faq-heading">
           <p className="eyebrow">Questions fréquentes</p>
-          <h2>Avant de commencer.</h2>
+          <h2>Questions fréquentes sur l’hypnose et les séances.</h2>
           <p>
             Quelques réponses simples pour vous permettre de décider sereinement.
           </p>
@@ -409,21 +399,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer>
-        <a className="wordmark footer-wordmark" href="#top">
-          <span>David</span>
-          <span>Frotiée</span>
-        </a>
-        <p>
-          L’hypnose est une pratique d’accompagnement complémentaire et ne se
-          substitue pas à un avis ou à un traitement médical.
-        </p>
-        <div>
-          <a href="#besoins">Vos besoins</a>
-          <a href="#approche">L’approche</a>
-          <a href="#rendez-vous">Contact</a>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
