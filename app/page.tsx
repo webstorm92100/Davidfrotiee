@@ -8,6 +8,7 @@ import {
   Minus,
   Monitor,
   Quote,
+  Star,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -98,6 +99,42 @@ const faqItems = [
       'Oui. Les accompagnements sont proposés au cabinet du Pôle Santé Apoteca à Besançon ou en téléconsultation.',
   },
 ];
+
+const googleReviewsUrl =
+  'https://www.google.com/search?q=David+Froti%C3%A9e+hypnoth%C3%A9rapeute+Besan%C3%A7on&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_5hwkuSnvqAoQbZlqMWedEBmZmWQib2FEGoCGxGu9wfUfJJWNFXgywfwbIifZ073I_NhVeg%3D';
+
+const googleReviews = [
+  {
+    author: 'Adrien T.',
+    date: 'Mars 2025',
+    rating: 5,
+    text: 'Très bonne expérience, avec de bons résultats et des changements dès la première séance. Encore merci.',
+  },
+  {
+    author: 'Frédérique D.',
+    date: 'Février 2025',
+    rating: 5,
+    text: 'Un excellent professionnel, avec un contact parfait comme ses séances. Je recommande à 100 %.',
+  },
+  {
+    author: 'Christine P.',
+    date: 'Février 2025',
+    rating: 5,
+    text: 'Une séance en douceur, très relaxante, avec des résultats positifs dès la première séance.',
+  },
+  {
+    author: 'Jean-Philippe L.',
+    date: 'Novembre 2024',
+    rating: 5,
+    text: 'Très professionnel et à l’écoute, avec un accompagnement calme et serein vers l’arrêt de cette addiction.',
+  },
+  {
+    author: 'Olivier M.',
+    date: 'Octobre 2024',
+    rating: 5,
+    text: 'Un grand merci à David.',
+  },
+].filter((review) => review.rating >= 4);
 
 export default function Home() {
   const goToBooking = () => {
@@ -290,20 +327,60 @@ export default function Home() {
         </ol>
       </section>
 
-      <section className="testimonial section">
-        <div className="quote-mark" aria-hidden="true">
-          <Quote />
+      <section className="reviews section" aria-labelledby="reviews-title">
+        <div className="reviews-heading">
+          <div>
+            <p className="eyebrow">Avis Google</p>
+            <h2 id="reviews-title">Leur expérience, avec leurs mots.</h2>
+          </div>
+          <div className="reviews-summary" aria-label="Note de 5 sur 5">
+            <strong>5,0</strong>
+            <div>
+              <div className="review-stars" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star key={index} />
+                ))}
+              </div>
+              <span>5 avis Google</span>
+            </div>
+          </div>
         </div>
-        <blockquote>
-          « L’approche m’a permis de comprendre mes propres mécanismes sans me
-          sentir jugé. Un accompagnement précis, efficace et d’une grande douceur
-          qui a ramené le calme. »
-        </blockquote>
-        <p>— Témoignage d’une personne accompagnée</p>
-        <Button variant="outline" className="secondary-cta" onClick={goToBooking}>
-          Voir si cet accompagnement me correspond
-          <ArrowRight aria-hidden="true" />
-        </Button>
+
+        <div className="reviews-grid">
+          {googleReviews.map((review) => (
+            <article className="review-card" key={`${review.author}-${review.date}`}>
+              <div className="review-card-top">
+                <Quote aria-hidden="true" />
+                <div className="review-stars" aria-label={`${review.rating} étoiles sur 5`}>
+                  {Array.from({ length: review.rating }).map((_, index) => (
+                    <Star key={index} aria-hidden="true" />
+                  ))}
+                </div>
+              </div>
+              <blockquote>« {review.text} »</blockquote>
+              <footer>
+                <strong>{review.author}</strong>
+                <span>{review.date} · Avis Google</span>
+              </footer>
+            </article>
+          ))}
+        </div>
+
+        <div className="reviews-actions">
+          <a
+            className="reviews-link"
+            href={googleReviewsUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Consulter tous les avis sur Google
+            <ArrowRight aria-hidden="true" />
+          </a>
+          <Button variant="outline" className="secondary-cta" onClick={goToBooking}>
+            Voir si cet accompagnement me correspond
+            <ArrowRight aria-hidden="true" />
+          </Button>
+        </div>
       </section>
 
       <section className="about" id="david">

@@ -726,70 +726,163 @@ a {
   line-height: 1.8;
 }
 
-.testimonial {
+.reviews {
   position: relative;
-  display: flex;
-  min-height: 45rem;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
   overflow: hidden;
   background: #d9caa7;
-  text-align: center;
 }
 
-.testimonial::before,
-.testimonial::after {
+.reviews::after {
   position: absolute;
-  width: 22rem;
-  height: 22rem;
-  border: 1px solid rgb(23 53 45 / 18%);
+  right: -9rem;
+  bottom: -12rem;
+  width: 30rem;
+  height: 30rem;
+  border: 1px solid rgb(23 53 45 / 16%);
   border-radius: 50%;
   content: '';
 }
 
-.testimonial::before {
-  top: -8rem;
-  left: -7rem;
-}
-
-.testimonial::after {
-  right: -7rem;
-  bottom: -8rem;
-}
-
-.quote-mark {
-  display: grid;
-  width: 3.4rem;
-  height: 3.4rem;
-  margin-bottom: 2rem;
-  place-items: center;
-  border: 1px solid rgb(23 53 45 / 35%);
-  border-radius: 50%;
-}
-
-.quote-mark svg {
-  width: 1.2rem;
-}
-
-.testimonial blockquote {
+.reviews-heading {
   position: relative;
-  z-index: 2;
-  max-width: 27ch;
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4.4vw, 4.8rem);
-  font-weight: 400;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+  z-index: 1;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: clamp(3rem, 6vw, 5.5rem);
 }
 
-.testimonial > p {
-  margin: 2rem 0 2.2rem;
-  color: #4d6259;
-  font-size: 0.76rem;
-  letter-spacing: 0.13em;
+.reviews-heading h2 {
+  max-width: 11ch;
+}
+
+.reviews-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.1rem 1.3rem;
+  border-top: 1px solid rgb(23 53 45 / 32%);
+  border-bottom: 1px solid rgb(23 53 45 / 32%);
+}
+
+.reviews-summary strong {
+  font-family: var(--font-serif);
+  font-size: 2.7rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.reviews-summary span {
+  display: block;
+  margin-top: 0.25rem;
+  color: #52645c;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.review-stars {
+  display: flex;
+  gap: 0.2rem;
+  color: #725b35;
+}
+
+.review-stars svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: currentColor;
+}
+
+.reviews-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgb(23 53 45 / 25%);
+  border-left: 1px solid rgb(23 53 45 / 25%);
+}
+
+.review-card {
+  display: flex;
+  min-height: 22rem;
+  flex-direction: column;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+  border-right: 1px solid rgb(23 53 45 / 25%);
+  border-bottom: 1px solid rgb(23 53 45 / 25%);
+  background: rgb(255 253 248 / 18%);
+}
+
+.review-card:nth-child(4),
+.review-card:nth-child(5) {
+  grid-column: span 1;
+}
+
+.review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-card-top > svg {
+  width: 1.2rem;
+  color: rgb(23 53 45 / 50%);
+}
+
+.review-card blockquote {
+  margin: 3rem 0 2rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 1.3;
+}
+
+.review-card footer {
+  display: block;
+  margin-top: auto;
+  padding: 1.2rem 0 0;
+  border-top: 1px solid rgb(23 53 45 / 22%);
+  background: transparent;
+  color: inherit;
+}
+
+.review-card footer strong,
+.review-card footer span {
+  display: block;
+}
+
+.review-card footer strong {
+  font-size: 0.87rem;
+}
+
+.review-card footer span {
+  margin-top: 0.2rem;
+  color: #53675e;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.reviews-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.reviews-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.86rem;
+}
+
+.reviews-link svg {
+  width: 1rem;
 }
 
 .about {
@@ -1590,6 +1683,10 @@ footer {
     gap: 3rem;
   }
 
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .inner-hero,
   .answer-section,
   .outcomes-section,
@@ -1811,10 +1908,26 @@ footer {
     padding: 2.5rem 0;
   }
 
-  .testimonial {
-    min-height: 40rem;
-    padding-right: 1.2rem;
-    padding-left: 1.2rem;
+  .reviews-heading,
+  .reviews-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .reviews-summary {
+    width: fit-content;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    min-height: 19rem;
+  }
+
+  .reviews-actions .secondary-cta {
+    width: 100%;
   }
 
   .about {
