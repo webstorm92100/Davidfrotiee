@@ -80,7 +80,7 @@ const supports = [
 ];
 
 const googleReviewsUrl =
-  'https://www.google.com/search?hl=fr-FR&q=David+FROTI%C3%89E+-+Hypnose+Tabac+-+Poids+-+Stress+-+Emotions';
+  'https://www.google.com/search?q=David+Froti%C3%A9e+hypnoth%C3%A9rapeute+Besan%C3%A7on&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_5hwkuSnvqAoQbZlqMWedEBmZmWQib2FEGoCGxGu9wfUfJJWNFXgywfwbIifZ073I_NhVeg%3D';
 
 const googleReviews = [
   {
