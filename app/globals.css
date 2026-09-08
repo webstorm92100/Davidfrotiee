@@ -64,11 +64,13 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  overflow-x: clip;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
@@ -145,8 +147,8 @@ a {
 }
 
 .seo-nav {
-  gap: clamp(0.85rem, 1.6vw, 1.8rem) !important;
-  font-size: 0.8rem !important;
+  gap: clamp(0.95rem, 1.6vw, 1.85rem) !important;
+  font-size: 0.9rem !important;
   white-space: nowrap;
 }
 
@@ -726,70 +728,225 @@ a {
   line-height: 1.8;
 }
 
-.testimonial {
+.client-reviews {
+  background: #d9caa7;
+}
+
+.reviews-heading {
+  margin-bottom: clamp(3.5rem, 6vw, 6rem);
+}
+
+.reviews-heading h2 {
+  max-width: 11ch;
+}
+
+.reviews-source {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.reviews-source p {
+  max-width: 34rem;
+  margin: 0;
+  color: #4d6259;
+  line-height: 1.8;
+}
+
+.reviews-source a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.9rem;
+}
+
+.reviews-source a svg {
+  width: 1rem;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgb(23 53 45 / 26%);
+  border-left: 1px solid rgb(23 53 45 / 26%);
+}
+
+.review-card {
   position: relative;
   display: flex;
-  min-height: 45rem;
-  align-items: center;
+  min-height: 27rem;
   flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  background: #d9caa7;
-  text-align: center;
+  padding: clamp(2rem, 3.5vw, 3.5rem);
+  border-right: 1px solid rgb(23 53 45 / 26%);
+  border-bottom: 1px solid rgb(23 53 45 / 26%);
+  background: rgb(255 253 248 / 16%);
 }
 
-.testimonial::before,
-.testimonial::after {
-  position: absolute;
-  width: 22rem;
-  height: 22rem;
-  border: 1px solid rgb(23 53 45 / 18%);
-  border-radius: 50%;
-  content: '';
+.review-stars {
+  display: flex;
+  gap: 0.28rem;
 }
 
-.testimonial::before {
-  top: -8rem;
-  left: -7rem;
+.review-stars svg {
+  width: 1rem;
+  height: 1rem;
+  fill: #17352d;
+  stroke: #17352d;
 }
 
-.testimonial::after {
-  right: -7rem;
-  bottom: -8rem;
+.review-quote-mark {
+  width: 1.55rem;
+  height: 1.55rem;
+  margin: 3rem 0 1.3rem;
+  opacity: 0.52;
 }
 
-.quote-mark {
-  display: grid;
-  width: 3.4rem;
-  height: 3.4rem;
-  margin-bottom: 2rem;
-  place-items: center;
-  border: 1px solid rgb(23 53 45 / 35%);
-  border-radius: 50%;
-}
-
-.quote-mark svg {
-  width: 1.2rem;
-}
-
-.testimonial blockquote {
-  position: relative;
-  z-index: 2;
-  max-width: 27ch;
+.review-card blockquote {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4.4vw, 4.8rem);
+  font-size: clamp(1.9rem, 2.5vw, 3rem);
   font-weight: 400;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
-.testimonial > p {
-  margin: 2rem 0 2.2rem;
+.review-meta {
+  display: grid;
+  gap: 0.18rem;
+  margin-top: auto;
+  padding-top: 2.5rem;
+}
+
+.review-meta strong {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.review-meta span {
   color: #4d6259;
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
+}
+
+.reviews-note {
+  margin: 1.4rem 0 0;
+  color: #52665f;
+  font-size: 0.78rem;
+}
+
+.radio-section {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.66fr) minmax(0, 1.34fr);
+  gap: clamp(4rem, 8vw, 9rem);
+  background: #17382f;
+  color: #f7f3e9;
+}
+
+.radio-intro {
+  position: sticky;
+  top: 3rem;
+  align-self: start;
+}
+
+.radio-mark {
+  display: grid;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 3rem;
+  place-items: center;
+  border: 1px solid rgb(216 202 168 / 38%);
+  border-radius: 50%;
+  color: #d8caa8;
+}
+
+.radio-mark svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.radio-intro h2 {
+  max-width: 10ch;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 4.8vw, 5.6rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.radio-intro > p:last-child {
+  max-width: 31rem;
+  margin: 2rem 0 0;
+  color: #c7d0cb;
+  line-height: 1.8;
+}
+
+.radio-list {
+  border-top: 1px solid rgb(216 202 168 / 32%);
+}
+
+.radio-card {
+  padding: clamp(2rem, 4vw, 3.6rem) 0;
+  border-bottom: 1px solid rgb(216 202 168 / 32%);
+}
+
+.radio-card-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.4rem;
+  margin-bottom: 2rem;
+  color: #c9b88f;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.radio-card-topline span:first-child {
+  margin-right: auto;
+  color: #f2e8cf;
+}
+
+.radio-card-copy {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.3rem;
+}
+
+.radio-index {
+  padding-top: 0.45rem;
+  color: #c9b88f;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.radio-card h3 {
+  max-width: 24ch;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2.8vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.radio-card-copy p {
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  color: #bdc9c4;
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.radio-card audio {
+  width: calc(100% - 4.3rem);
+  height: 2.75rem;
+  margin: 2rem 0 0 4.3rem;
+  color-scheme: light;
 }
 
 .about {
@@ -1503,7 +1660,33 @@ footer {
   border: 0;
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 1081px) and (max-width: 1320px) {
+  .site-header {
+    gap: 1.2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .wordmark {
+    font-size: 1.05rem;
+  }
+
+  .wordmark span:last-child {
+    margin-left: 1.9rem;
+  }
+
+  .seo-nav {
+    gap: 0.75rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .header-cta {
+    padding: 0 0.95rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1080px) {
   .site-header {
     grid-template-columns: 1fr auto auto;
   }
@@ -1531,9 +1714,9 @@ footer {
   }
 
   .site-header .mobile-menu nav {
-    position: absolute;
-    top: calc(100% + 0.65rem);
-    right: 0;
+    position: fixed;
+    top: 6.4rem;
+    right: 1.5rem;
     display: flex;
     width: min(19rem, calc(100vw - 2.4rem));
     align-items: stretch;
@@ -1590,6 +1773,24 @@ footer {
     gap: 3rem;
   }
 
+  .review-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-card:last-child {
+    min-height: 21rem;
+    grid-column: 1 / -1;
+  }
+
+  .radio-section {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .radio-intro {
+    position: static;
+  }
+
   .inner-hero,
   .answer-section,
   .outcomes-section,
@@ -1615,6 +1816,13 @@ footer {
 
   .mobile-menu summary {
     padding: 0.45rem 0.65rem;
+  }
+
+  .site-header .mobile-menu nav {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    right: -4.15rem;
+    width: min(17.5rem, calc(100vw - 2.4rem));
   }
 
   .header-cta {
@@ -1738,6 +1946,10 @@ footer {
     min-height: 38rem;
   }
 
+  .portrait-frame img {
+    transform: none;
+  }
+
   .scroll-cue {
     display: none;
   }
@@ -1811,10 +2023,39 @@ footer {
     padding: 2.5rem 0;
   }
 
-  .testimonial {
-    min-height: 40rem;
-    padding-right: 1.2rem;
-    padding-left: 1.2rem;
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card,
+  .review-card:last-child {
+    min-height: 22rem;
+    grid-column: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .review-quote-mark {
+    margin-top: 2.2rem;
+  }
+
+  .radio-section {
+    gap: 3.5rem;
+  }
+
+  .radio-mark {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .radio-card-copy {
+    grid-template-columns: 2.25rem 1fr;
+    gap: 0.75rem;
+  }
+
+  .radio-card audio {
+    width: 100%;
+    margin-left: 0;
   }
 
   .about {

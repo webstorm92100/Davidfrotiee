@@ -4,10 +4,13 @@ import {
   ArrowDownRight,
   ArrowRight,
   Check,
+  ExternalLink,
   MapPin,
   Minus,
   Monitor,
   Quote,
+  Radio,
+  Star,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -73,6 +76,57 @@ const supports = [
     title: 'Faire ce que vous savez faire, sans que la pression décide à votre place.',
     detail: 'Prise de parole, examens, concours et affirmation de soi.',
     href: '/accompagnements/confiance-examens-besancon',
+  },
+];
+
+const googleReviewsUrl =
+  'https://www.google.com/search?hl=fr-FR&q=David+FROTI%C3%89E+-+Hypnose+Tabac+-+Poids+-+Stress+-+Emotions';
+
+const googleReviews = [
+  {
+    quote: 'À l’écoute, bienveillant et très humain.',
+    author: 'Fabienne Gltz',
+    context: 'Arrêt du tabac & confiance en soi',
+    date: 'Avril 2026',
+  },
+  {
+    quote: 'Je me sens maintenant apaisé, en accord avec moi-même.',
+    author: 'Audrey Theobald',
+    context: 'Alimentation & stress',
+    date: 'Janvier 2026',
+  },
+  {
+    quote: 'Excellent thérapeute, à l’écoute et très professionnel.',
+    author: 'Jean-Philippe Larceneur',
+    context: 'Arrêt du tabac',
+    date: 'Novembre 2024',
+  },
+];
+
+const radioEpisodes = [
+  {
+    title: 'Mois sans tabac : sortir durablement du réflexe de la cigarette',
+    summary:
+      'David Frotiée répond aux questions sur l’hypnose et l’arrêt du tabac à l’occasion du Mois sans tabac.',
+    duration: '21 min 56',
+    date: '20 novembre 2024',
+    src: '/radio-mois-sans-tabac.mp3',
+  },
+  {
+    title: 'Hypnothérapie et états émotionnels : retrouver un équilibre intérieur',
+    summary:
+      'Un échange consacré aux réactions émotionnelles, au stress et aux automatismes qui peuvent s’installer au quotidien.',
+    duration: '18 min 09',
+    date: 'Entretien radio',
+    src: '/radio-hypnotherapie-emotions-ici-besancon.mp3',
+  },
+  {
+    title: 'Tabac, alimentation : que faire de nos bonnes résolutions ?',
+    summary:
+      'Pourquoi certaines décisions tiennent et d’autres s’effacent — et comment aborder le changement avec davantage de justesse.',
+    duration: '17 min 21',
+    date: '30 décembre 2024',
+    src: '/radio-tabac-alimentation-bonnes-resolutions.mp3',
   },
 ];
 
@@ -290,20 +344,79 @@ export default function Home() {
         </ol>
       </section>
 
-      <section className="testimonial section">
-        <div className="quote-mark" aria-hidden="true">
-          <Quote />
+      <section className="client-reviews section" id="avis">
+        <div className="reviews-heading two-column-heading">
+          <div>
+            <p className="eyebrow">Mes clients témoignent</p>
+            <h2>Ce qu’ils disent de leur accompagnement.</h2>
+          </div>
+          <div className="reviews-source">
+            <p>
+              Des retours publics laissés après une séance ou un accompagnement
+              avec David Frotiée.
+            </p>
+            <a href={googleReviewsUrl} target="_blank" rel="noreferrer">
+              Lire tous les avis sur Google <ExternalLink aria-hidden="true" />
+            </a>
+          </div>
         </div>
-        <blockquote>
-          « L’approche m’a permis de comprendre mes propres mécanismes sans me
-          sentir jugé. Un accompagnement précis, efficace et d’une grande douceur
-          qui a ramené le calme. »
-        </blockquote>
-        <p>— Témoignage d’une personne accompagnée</p>
-        <Button variant="outline" className="secondary-cta" onClick={goToBooking}>
-          Voir si cet accompagnement me correspond
-          <ArrowRight aria-hidden="true" />
-        </Button>
+
+        <div className="review-grid">
+          {googleReviews.map((review) => (
+            <article className="review-card" key={review.author}>
+              <div className="review-stars" aria-label="5 étoiles sur 5">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star aria-hidden="true" key={index} />
+                ))}
+              </div>
+              <Quote className="review-quote-mark" aria-hidden="true" />
+              <blockquote>« {review.quote} »</blockquote>
+              <div className="review-meta">
+                <strong>{review.author}</strong>
+                <span>{review.context}</span>
+                <span>{review.date} · Avis Google</span>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="reviews-note">
+          Extraits d’avis publics Google. Les résultats peuvent varier selon les personnes.
+        </p>
+      </section>
+
+      <section className="radio-section section" id="interviews-radio">
+        <div className="radio-intro">
+          <div className="radio-mark" aria-hidden="true"><Radio /></div>
+          <p className="eyebrow light">Entretiens radio</p>
+          <h2>David Frotiée au micro d’ici Besançon.</h2>
+          <p>
+            Trois échanges diffusés sur France Bleu Besançon, aujourd’hui ici
+            Besançon, autour du tabac, de l’alimentation et des émotions.
+          </p>
+        </div>
+
+        <div className="radio-list">
+          {radioEpisodes.map((episode, index) => (
+            <article className="radio-card" key={episode.src}>
+              <div className="radio-card-topline">
+                <span>ici Besançon</span>
+                <span>{episode.date}</span>
+                <span>{episode.duration}</span>
+              </div>
+              <div className="radio-card-copy">
+                <span className="radio-index">0{index + 1}</span>
+                <div>
+                  <h3>{episode.title}</h3>
+                  <p>{episode.summary}</p>
+                </div>
+              </div>
+              <audio controls preload="metadata" aria-label={`Écouter : ${episode.title}`}>
+                <source src={episode.src} type="audio/mpeg" />
+                Votre navigateur ne permet pas la lecture audio.
+              </audio>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="about" id="david">
