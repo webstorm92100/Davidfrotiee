@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Menu as MenuIcon } from 'lucide-react';
 import { CookiePreferencesButton } from '@/components/analytics-consent';
 
 export const bookingUrl =
@@ -39,7 +39,10 @@ export function SiteHeader() {
       </nav>
 
       <details className="mobile-menu">
-        <summary>Menu</summary>
+        <summary aria-label="Ouvrir le menu de navigation">
+          <MenuIcon aria-hidden="true" />
+          <span className="sr-only">Menu</span>
+        </summary>
         <nav aria-label="Navigation mobile">
           {serviceLinks.map((link) => (
             <a href={link.href} key={link.href}>{link.label}</a>
