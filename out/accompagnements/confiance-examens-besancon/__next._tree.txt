@@ -1,2 +1,2 @@
-:HL["/_next/static/chunks/2ajyhlu__-3sk.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"accompagnements","param":null,"prefetchHints":4192,"slots":{"children":{"name":"confiance-examens-besancon","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"2q8Jxuzc2F0Ve9LQva5fU"}
+:HL["/_next/static/css/93d517bdbc5a36ea.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"accompagnements","param":null,"prefetchHints":4192,"slots":{"children":{"name":"confiance-examens-besancon","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"cQ6m71YL1_NvX3DE8s-op"}
