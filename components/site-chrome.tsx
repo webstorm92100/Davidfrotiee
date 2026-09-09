@@ -77,6 +77,12 @@ export function SiteFooter() {
         ))}
         <a href="/tarifs-acces">Tarifs, accès &amp; contact</a>
       </div>
+      <p className="footer-credit">
+        Site réalisé par l’agence{' '}
+        <a href="https://www.webstorm.fr" target="_blank" rel="noopener noreferrer">
+          Webstorm
+        </a>
+      </p>
     </footer>
   );
 }
