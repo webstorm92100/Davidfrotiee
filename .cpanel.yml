@@ -1,8 +1,6 @@
 ---
 deployment:
   tasks:
-    - export PATH="$PATH:/opt/alt/alt-nodejs24/root/usr/bin/"
     - export DEPLOYPATH=/home/dyuv7350/airby.prodbl.com/
-    - npm ci
-    - npm run build:o2switch
     - /usr/bin/rsync -av out/ "$DEPLOYPATH"
+
