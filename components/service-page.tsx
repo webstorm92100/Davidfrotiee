@@ -2,6 +2,7 @@ import { ArrowRight, Check, Clock, MapPin } from 'lucide-react';
 import { bookingUrl, SiteFooter, SiteHeader } from '@/components/site-chrome';
 
 export type ServicePageContent = {
+  path: string;
   eyebrow: string;
   title: string;
   intro: string;
@@ -18,6 +19,57 @@ export type ServicePageContent = {
 };
 
 export function ServicePage({ content }: { content: ServicePageContent }) {
+  const pageUrl = `https://davidfrotiee.com${content.path}/`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        name: content.eyebrow,
+        description: content.intro,
+        url: pageUrl,
+        provider: {
+          '@id': 'https://davidfrotiee.com/#cabinet',
+        },
+        areaServed: {
+          '@type': 'City',
+          name: 'Besançon',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Accueil',
+            item: 'https://davidfrotiee.com/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: content.eyebrow,
+            item: pageUrl,
+          },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${pageUrl}#faq`,
+        mainEntity: content.questions.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <>
       <SiteHeader />
@@ -107,6 +159,10 @@ export function ServicePage({ content }: { content: ServicePageContent }) {
             Consulter les disponibilités <ArrowRight aria-hidden="true" />
           </a>
         </section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </main>
       <SiteFooter />
     </>

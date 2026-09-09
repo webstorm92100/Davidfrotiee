@@ -1,8 +1,9 @@
 import type { ServicePageContent } from '@/components/service-page';
 
 export const tobaccoContent: ServicePageContent = {
+  path: '/accompagnements/arret-tabac-besancon',
   eyebrow: 'Hypnose & arrêt du tabac à Besançon',
-  title: 'Arrêter de fumer sans faire de chaque envie un combat.',
+  title: 'Hypnose pour arrêter de fumer à Besançon : sortir du réflexe sans combat.',
   intro:
     'Un accompagnement par l’hypnose pour travailler sur le réflexe de la cigarette et retrouver une vie qui ne s’organise plus autour du tabac.',
   answerTitle: 'Pourquoi est-il si difficile d’arrêter de fumer malgré la volonté ?',
@@ -44,8 +45,9 @@ export const tobaccoContent: ServicePageContent = {
 };
 
 export const foodContent: ServicePageContent = {
+  path: '/accompagnements/alimentation-poids-besancon',
   eyebrow: 'Hypnose, alimentation & poids à Besançon',
-  title: 'Retrouver une relation plus sereine avec l’alimentation.',
+  title: 'Hypnose et compulsions alimentaires à Besançon : retrouver une relation plus sereine.',
   intro:
     'Un accompagnement sans régime imposé pour mieux comprendre les envies automatiques, les compulsions et la place émotionnelle prise par la nourriture.',
   answerTitle: 'Pourquoi les compulsions alimentaires ne sont-elles pas qu’une question de discipline ?',
@@ -87,8 +89,9 @@ export const foodContent: ServicePageContent = {
 };
 
 export const stressContent: ServicePageContent = {
+  path: '/accompagnements/stress-emotions-besancon',
   eyebrow: 'Hypnose, stress & émotions à Besançon',
-  title: 'Retrouver du calme quand la pression prend trop de place.',
+  title: 'Hypnose pour le stress et les émotions à Besançon : retrouver du calme.',
   intro:
     'Un accompagnement pour les périodes de stress, de charge mentale ou de surmenage, lorsque se raisonner ne suffit plus à apaiser la réaction intérieure.',
   answerTitle: 'Pourquoi le stress continue-t-il alors que l’on sait qu’il faudrait ralentir ?',
@@ -130,8 +133,9 @@ export const stressContent: ServicePageContent = {
 };
 
 export const confidenceContent: ServicePageContent = {
+  path: '/accompagnements/confiance-examens-besancon',
   eyebrow: 'Hypnose, confiance & examens à Besançon',
-  title: 'Agir avec assurance lorsque l’enjeu fait monter la pression.',
+  title: 'Hypnose pour la confiance, le trac et les examens à Besançon.',
   intro:
     'Un accompagnement pour le trac, l’affirmation de soi, les prises de parole, les concours et les examens — quand vos capacités sont là mais deviennent difficiles à mobiliser.',
   answerTitle: 'Pourquoi peut-on perdre ses moyens alors que l’on est bien préparé ?',

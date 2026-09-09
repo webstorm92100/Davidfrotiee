@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { CookiePreferencesButton } from '@/components/analytics-consent';
 
 export const bookingUrl =
   'https://perfactive.fr/david-frotiee-hypnose-arret-tabac/david-frotiee/book';
@@ -76,6 +77,8 @@ export function SiteFooter() {
           <a href={link.href} key={link.href}>{link.label}</a>
         ))}
         <a href="/tarifs-acces">Tarifs, accès &amp; contact</a>
+        <a href="/mentions-legales">Mentions légales &amp; confidentialité</a>
+        <CookiePreferencesButton />
       </div>
       <p className="footer-credit">
         Site réalisé par l’agence{' '}

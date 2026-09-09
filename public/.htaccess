@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Domaine canonique : HTTPS sans www.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^davidfrotiee\.com$ [NC]
+RewriteRule ^ https://davidfrotiee.com%{REQUEST_URI} [R=301,L]
+
+# Conservation des signaux SEO des anciennes pages.
+Redirect 301 /sevrage-tabac/ /accompagnements/arret-tabac-besancon/
+Redirect 301 /equilibre-poids/ /accompagnements/alimentation-poids-besancon/
+Redirect 301 /serenite-posture/ /accompagnements/stress-emotions-besancon/
+Redirect 301 /tarifs-contact/ /tarifs-acces/
+Redirect 301 /mentions-legales-politique-confidentialite/ /mentions-legales/

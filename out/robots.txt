@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://davidfrotiee.com
+Sitemap: https://davidfrotiee.com/sitemap.xml

@@ -138,6 +138,11 @@ const radioEpisodes = [
 
 const faqItems = [
   {
+    question: 'Comment se déroule une première séance d’hypnose ?',
+    answer:
+      'La séance commence par un échange sur votre situation, vos déclencheurs et l’objectif recherché. David vous explique ensuite le travail proposé avant de vous accompagner, à votre rythme, dans l’expérience hypnotique.',
+  },
+  {
     question: 'Est-ce que je vais perdre le contrôle ?',
     answer:
       'Non. L’accompagnement se déroule dans l’échange et le respect de votre rythme. Vous restez présent, libre de parler et d’interrompre à tout moment.',
@@ -160,6 +165,20 @@ const faqItems = [
 ];
 
 export default function Home() {
+  const faqStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': 'https://davidfrotiee.com/#faq',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
   const goToBooking = () => {
     window.location.href = bookingUrl;
   };
@@ -176,13 +195,13 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">Hypnothérapeute à Besançon · au cabinet &amp; à distance</p>
           <h1>
-            Vous savez ce que vous voulez changer.
-            <em> Pourtant, quelque chose résiste.</em>
+            Hypnothérapeute à Besançon.
+            <em> Avancer là où quelque chose résiste.</em>
           </h1>
           <p className="hero-intro">
-            Tabac, alimentation, stress, confiance… Je vous accompagne pour
-            retrouver une liberté de choix, sans vous battre davantage contre
-            vous-même.
+            Arrêt du tabac, compulsions alimentaires, stress, émotions,
+            confiance ou examens : je vous accompagne par l’hypnose au cabinet
+            à Besançon ou en téléconsultation.
           </p>
 
           <div className="hero-actions">
@@ -208,8 +227,12 @@ export default function Home() {
         <div className="hero-visual">
           <div className="portrait-frame">
             <img
-              src="/david-frotiee-portrait.png"
+              src="/david-frotiee-portrait.webp"
               alt="David Frotiée, hypnothérapeute à Besançon"
+              width="1080"
+              height="1350"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
           <div className="portrait-note">
@@ -428,7 +451,7 @@ export default function Home() {
                   <p>{episode.summary}</p>
                 </div>
               </div>
-              <audio controls preload="metadata" aria-label={`Écouter : ${episode.title}`}>
+              <audio controls preload="none" aria-label={`Écouter : ${episode.title}`}>
                 <source src={episode.src} type="audio/mpeg" />
                 Votre navigateur ne permet pas la lecture audio.
               </audio>
@@ -440,8 +463,12 @@ export default function Home() {
       <section className="about" id="david">
         <div className="about-image">
           <img
-            src="/cabinet-david-frotiee.jpg"
-            alt="Le cabinet de David Frotiée au Pôle Santé Apoteca à Besançon"
+            src="/cabinet-david-frotiee.webp"
+            alt="Séance dans le cabinet de David Frotiée au Pôle Santé Apoteca à Besançon"
+            width="1195"
+            height="896"
+            loading="lazy"
+            decoding="async"
           />
           <div className="location-card">
             <MapPin aria-hidden="true" />
@@ -454,7 +481,7 @@ export default function Home() {
 
         <div className="about-copy">
           <p className="eyebrow">David Frotiée</p>
-          <h2>David Frotiée, hypnothérapeute à Besançon.</h2>
+          <h2>David Frotiée, hypnothérapeute à Besançon et à distance.</h2>
           <p className="about-lead">
             Je conçois l’accompagnement comme un espace de travail calme,
             précis et profondément humain.
@@ -531,6 +558,10 @@ export default function Home() {
       </section>
 
       <SiteFooter />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
     </main>
   );
 }

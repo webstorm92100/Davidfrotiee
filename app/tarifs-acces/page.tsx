@@ -13,9 +13,15 @@ import {
 import { bookingUrl, SiteFooter, SiteHeader } from '@/components/site-chrome';
 
 export const metadata: Metadata = {
-  title: 'Tarifs hypnose et accès au cabinet à Besançon',
+  title: 'Tarifs hypnose à Besançon',
   description:
     'Tarifs des séances d’hypnose de David Frotiée, adresse du cabinet au Pôle Santé Apoteca à Besançon, horaires, accès PMR et réservation.',
+  alternates: { canonical: '/tarifs-acces/' },
+  openGraph: {
+    title: 'Tarifs hypnose à Besançon',
+    description: 'Tarifs des séances d’hypnose de David Frotiée, adresse du cabinet au Pôle Santé Apoteca à Besançon, horaires, accès PMR et réservation.',
+    url: '/tarifs-acces/',
+  },
 };
 
 const rates = [
@@ -29,6 +35,27 @@ const rates = [
 ];
 
 export default function RatesPage() {
+  const pageUrl = 'https://davidfrotiee.com/tarifs-acces/';
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Accueil',
+        item: 'https://davidfrotiee.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Tarifs et accès au cabinet',
+        item: pageUrl,
+      },
+    ],
+  };
+
   return (
     <>
       <SiteHeader />
@@ -39,7 +66,7 @@ export default function RatesPage() {
               <a href="/">Accueil</a><span aria-hidden="true">/</span><span>Tarifs &amp; accès</span>
             </nav>
             <p className="eyebrow">Informations pratiques</p>
-            <h1>Tarifs des séances d’hypnose et accès au cabinet à Besançon.</h1>
+            <h1>Tarifs d’hypnose à Besançon et accès au cabinet.</h1>
             <p>
               Prix, formats, horaires et accès : tout ce qu’il vous faut pour
               organiser votre première séance sereinement.
@@ -110,7 +137,14 @@ export default function RatesPage() {
 
         <section className="access-section">
           <div className="access-image">
-            <img src="/cabinet-david-frotiee.jpg" alt="Cabinet de David Frotiée au Pôle Santé Apoteca à Besançon" />
+            <img
+              src="/cabinet-jeune-homme.webp"
+              alt="Jeune homme installé dans le fauteuil du cabinet de David Frotiée à Besançon"
+              width="1195"
+              height="896"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div className="access-copy">
             <p className="eyebrow">Adresse &amp; accès</p>
@@ -150,6 +184,10 @@ export default function RatesPage() {
             Prendre rendez-vous <ArrowRight aria-hidden="true" />
           </a>
         </section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </main>
       <SiteFooter />
     </>
