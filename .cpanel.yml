@@ -1,3 +1,4 @@
+---
 deployment:
   tasks:
     - export PATH="$PATH:/opt/alt/alt-nodejs24/root/usr/bin/"
