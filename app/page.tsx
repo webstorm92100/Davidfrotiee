@@ -393,7 +393,7 @@ export default function Home() {
         <div className="review-grid">
           {googleReviews.map((review) => (
             <article className="review-card" key={review.author}>
-              <div className="review-stars" aria-label="5 étoiles sur 5">
+              <div className="review-stars" role="img" aria-label="5 étoiles sur 5">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star aria-hidden="true" key={index} />
                 ))}

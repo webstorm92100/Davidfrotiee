@@ -103,7 +103,11 @@ export function AnalyticsConsent() {
   if (consent !== 'unset') return null;
 
   return (
-    <aside className="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-description">
+    <section
+      className="cookie-banner"
+      aria-labelledby="cookie-title"
+      aria-describedby="cookie-description"
+    >
       <div>
         <strong id="cookie-title">Mesure d’audience</strong>
         <p id="cookie-description">
@@ -115,7 +119,7 @@ export function AnalyticsConsent() {
         <button type="button" onClick={refuse}>Tout refuser</button>
         <button type="button" onClick={accept}>Tout accepter</button>
       </div>
-    </aside>
+    </section>
   );
 }
 
