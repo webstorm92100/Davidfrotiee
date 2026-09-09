@@ -1,6 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/dyuv7350/airby.prodbl.com/
+    - export DEPLOYPATH=/home2/czzt1270/www/
     - /usr/bin/rsync -av out/ "$DEPLOYPATH"
-
