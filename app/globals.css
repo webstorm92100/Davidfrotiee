@@ -870,7 +870,7 @@ a {
 }
 
 .radio-intro h2 {
-  max-width: 10ch;
+  max-width: 12ch;
   margin: 0;
   font-family: var(--font-serif);
   font-size: clamp(3rem, 4.8vw, 5.6rem);
@@ -879,11 +879,78 @@ a {
   line-height: 0.98;
 }
 
-.radio-intro > p:last-child {
+.radio-intro-copy {
   max-width: 31rem;
   margin: 2rem 0 0;
   color: #c7d0cb;
   line-height: 1.8;
+}
+
+.radio-brands {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.radio-brand {
+  display: inline-flex;
+  min-height: 3.2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  line-height: 1;
+}
+
+.radio-brand-france-bleu {
+  width: 4.8rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.55rem 0.75rem;
+  background: linear-gradient(145deg, #1476be, #003b83);
+  color: #fff;
+  font-size: 0.78rem;
+  letter-spacing: -0.02em;
+}
+
+.radio-brand-france-bleu strong {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.radio-brand-ici {
+  gap: 0.65rem;
+  padding: 0.55rem 0.9rem;
+  background: #fff;
+  color: #17211e;
+}
+
+.radio-brand-ici strong {
+  position: relative;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+
+.radio-brand-ici strong::after {
+  position: absolute;
+  right: -0.18rem;
+  bottom: -0.18rem;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: #ffd52d;
+  content: '';
+}
+
+.radio-brand-ici span {
+  padding-left: 0.65rem;
+  border-left: 1px solid #ccd2cf;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .radio-list {
@@ -907,9 +974,21 @@ a {
   text-transform: uppercase;
 }
 
-.radio-card-topline span:first-child {
+.radio-card-topline .radio-source {
   margin-right: auto;
-  color: #f2e8cf;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0.2rem;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.radio-source-france-bleu {
+  background: #075ea8;
+}
+
+.radio-source-ici {
+  background: #f7f3e9;
+  color: #17382f !important;
 }
 
 .radio-card-copy {

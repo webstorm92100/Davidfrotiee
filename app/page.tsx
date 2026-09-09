@@ -110,6 +110,8 @@ const radioEpisodes = [
       'David Frotiée répond aux questions sur l’hypnose et l’arrêt du tabac à l’occasion du Mois sans tabac.',
     duration: '21 min 56',
     date: '20 novembre 2024',
+    station: 'France Bleu Besançon',
+    brand: 'france-bleu',
     src: '/radio-mois-sans-tabac.mp3',
   },
   {
@@ -118,6 +120,8 @@ const radioEpisodes = [
       'Un échange consacré aux réactions émotionnelles, au stress et aux automatismes qui peuvent s’installer au quotidien.',
     duration: '18 min 09',
     date: 'Entretien radio',
+    station: 'ici Besançon',
+    brand: 'ici',
     src: '/radio-hypnotherapie-emotions-ici-besancon.mp3',
   },
   {
@@ -126,6 +130,8 @@ const radioEpisodes = [
       'Pourquoi certaines décisions tiennent et d’autres s’effacent — et comment aborder le changement avec davantage de justesse.',
     duration: '17 min 21',
     date: '30 décembre 2024',
+    station: 'France Bleu Besançon',
+    brand: 'france-bleu',
     src: '/radio-tabac-alimentation-bonnes-resolutions.mp3',
   },
 ];
@@ -304,7 +310,7 @@ export default function Home() {
         <div className="method-intro">
           <p className="eyebrow">Ce qui se passe réellement</p>
           <h2>Comment se déroule un accompagnement en hypnose&nbsp;?</h2>
-          <p>
+          <p className="radio-intro-copy">
             La technique reste présente, mais elle vient soutenir votre parcours
             — elle ne vous demande pas d’en devenir l’expert.
           </p>
@@ -388,18 +394,30 @@ export default function Home() {
         <div className="radio-intro">
           <div className="radio-mark" aria-hidden="true"><Radio /></div>
           <p className="eyebrow light">Entretiens radio</p>
-          <h2>David Frotiée au micro d’ici Besançon.</h2>
+          <h2>David Frotiée au micro d’ici Besançon et France Bleu.</h2>
           <p>
-            Trois échanges diffusés sur France Bleu Besançon, aujourd’hui ici
-            Besançon, autour du tabac, de l’alimentation et des émotions.
+            Trois échanges autour du tabac, de l’alimentation et des émotions,
+            diffusés sur France Bleu Besançon et ici Besançon.
           </p>
+          <div className="radio-brands" aria-label="Radios partenaires">
+            <span className="radio-brand radio-brand-france-bleu" role="img" aria-label="France Bleu">
+              <span>france</span>
+              <strong>bleu</strong>
+            </span>
+            <span className="radio-brand radio-brand-ici" role="img" aria-label="ici Besançon">
+              <strong>ici</strong>
+              <span>Besançon</span>
+            </span>
+          </div>
         </div>
 
         <div className="radio-list">
           {radioEpisodes.map((episode, index) => (
             <article className="radio-card" key={episode.src}>
               <div className="radio-card-topline">
-                <span>ici Besançon</span>
+                <span className={`radio-source radio-source-${episode.brand}`}>
+                  {episode.station}
+                </span>
                 <span>{episode.date}</span>
                 <span>{episode.duration}</span>
               </div>
